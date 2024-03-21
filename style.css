@@ -1,0 +1,171 @@
+:root {
+  --color-base-gray-100: #F5F5F5;
+  --color-base-gray-300: #8D8D99;
+  --color-base-gray-500: #3D3D3D;
+  --color-base-gray-900: #202024;
+  --color-base-white: #FFF;
+  
+  font-size: 62.5%;
+}
+
+body, input {
+  font-family: "Mulish", sans-serif;
+}
+
+body {
+  background: var(--color-base-white);
+  color: var(--color-base-gray-900);
+  font-size: 1.6rem;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+}
+
+header, nav, ul {
+  align-items: center;
+  display: flex;
+  gap: 7.2rem;
+  font-weight: 700;
+}
+
+header {
+  --startY: -100%;
+
+  animation: move 500ms;
+  padding: 1.6rem 0;
+}
+
+ul {
+  color: var(--color-base-gray-300);
+  font-size: 1.8rem;
+}
+
+li.active {
+  color: var(--color-base-gray-900);
+}
+
+form {
+  flex: 1;
+}
+
+.input-wrapper > label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+input {
+  background: var(--color-base-gray-100);
+  border: none;
+  border-radius: 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1.6rem;
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--color-base-gray-500);
+  opacity: 0.56;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 4.2rem;
+  object-fit: cover;
+  width: 4.2rem;
+}
+
+.container {
+  margin: 0 auto;
+  /* padding: 1.6rem 3.2rem;s */
+  width: min(112rem, 100%);
+}
+
+main {
+   overflow-y: scroll;
+}
+
+h1 {
+  font-size: 2.4rem;
+  padding: 3.2rem 0;
+}
+
+section {
+  display: grid;
+  gap: 2.2rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+figure {
+  --delay: 200ms;
+
+  animation: appear 500ms var(--delay) backwards;
+  background: var(--color-base-white);
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+figure > img {
+  aspect-ratio: 16/9;
+  cursor: pointer;
+  display: block;
+  object-fit: cover;
+  transition: all ease-in-out 500ms;
+  width: 100%;
+}
+
+figure > img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  transform: scale(1.1) rotate(-1deg);
+}
+
+figcaption {
+  padding: 2.2rem;
+  background: var(--color-base-white);
+  z-index: 1;
+  position: relative;
+}
+
+figcaption > h2 {
+  font-size: 1.8rem;
+}
+
+.tags {
+  margin-top: 1.2rem;
+  text-transform: uppercase;
+}
+
+.tags > span {
+  background: var(--color-base-gray-100);
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  line-height: 0;
+  padding: 0.6rem;
+}
+
+footer {
+  --startY: 100%;
+
+  animation: move 500ms;
+  font-weight: 600;
+  padding: 1.6rem;
+  text-align: center;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
